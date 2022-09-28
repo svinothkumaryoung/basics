@@ -6,6 +6,7 @@ import com.example.demo.services.RegisterationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +18,7 @@ public class HomeController {
     RegisterationService registerationService;
 
     @PostMapping("/addRecords")
-    public Registeration addStudentRecords(@RequestBody Registeration reg )
+    public Registeration addStudentRecords( @Valid @RequestBody Registeration reg )
     {
         return registerationService.saveStudent(reg);
     }

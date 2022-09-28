@@ -1,6 +1,9 @@
 package com.example.demo.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 //Camel Case Letter
 //registerationNumber
 @Entity
@@ -12,6 +15,8 @@ public class Registeration {
     int registerationNo;
 
     @Column(name = "student_name")
+    @NotNull
+    @Size(min=4,message = "Name size should be minimum  {min} Character ")
     String name;
 
     @Column(name = "student_department")
